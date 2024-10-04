@@ -2,6 +2,9 @@
 
 $main-familly-font: Verdana, Geneva, Tahoma, sans-serif;
 $mainFontColor: rgb(26, 24, 24);
+$colorThemeWhite: rgba(255, 253, 253, 1);
+$colorThemeRed: rgba(231, 22, 72, 1);
+$colorThemeBlack: rgba(5, 5, 5, 1);
 
 // ********** ALL ***************
 
@@ -17,5 +20,62 @@ $mainFontColor: rgb(26, 24, 24);
 }
 
 body {
-    background-color: rgb(238, 234, 231);
+    background-color: $colorThemeWhite;
 }
+
+// ******************************************** //
+
+// ************** PARAGRAPH P *************** //
+
+// ******* variables **************
+
+// mobile
+$lineHeightParagraph: 1.3em;
+$letterSpacingParagraph: 0.03em;
+$marginParagraph: 1em 0.6em;
+$fontSizeParagraph: 1.2em;
+
+// tablet
+$marginParagraphTablet: 2em 5em;
+$fontSizeParagraphTablet: 1.3em;
+
+// desktop
+$marginParagraphDesktop: 2em 10em;
+$fontSizeParagraphDesktop: 1.4em;
+
+// *********** mixin **************
+
+// **** p **********
+
+@mixin myParagraph(
+    $lineHeightParagraph,
+    $letterSpacingParagraph,
+    $marginParagraph,
+    $fontSizeParagraph,
+) {
+    line-height: $lineHeightParagraph;
+    letter-spacing: $letterSpacingParagraph;
+    margin: $marginParagraph;
+    font-size: $fontSizeParagraph;
+}
+
+p {
+    @include myParagraph(
+        $lineHeightParagraph,
+        $letterSpacingParagraph,
+        $marginParagraph,
+        $fontSizeParagraph,
+    );
+      
+    @media screen and (min-width: 768px) {
+          margin: $marginParagraphTablet;
+          font-size: $fontSizeParagraphTablet;
+        }
+
+    @media screen and (min-width: 1024px) {
+          margin: $marginParagraphDesktop;
+          font-size: $fontSizeParagraphDesktop;
+        }
+}
+
+// ************************************************************************//
